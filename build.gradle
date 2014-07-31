@@ -7,6 +7,7 @@ repositories {
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.3.6'
     compile 'org.jboss.resteasy:resteasy-netty:3.0.7.Final'
+    compile 'org.jboss.resteasy:resteasy-jackson-provider:3.0.7.Final'
     testCompile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
     testCompile 'junit:junit:4.11'
 }

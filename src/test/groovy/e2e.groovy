@@ -27,4 +27,14 @@ class EndToEndTest {
         assert response.data.text == 'Hello!!!\n'
         assert response.contentType == 'text/plain'
     }
+
+    @Test
+    void testHelloJson() {
+
+        def response = client.get path: '/rest-api/json'
+
+        assert response.status == 200
+        assert response.data.message == 'Hello!!!'
+        assert response.contentType == 'application/json'
+    }
 }

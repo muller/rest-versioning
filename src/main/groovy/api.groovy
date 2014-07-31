@@ -11,4 +11,11 @@ class RestApi {
   String hello() {
     'Hello!!!\n'
   }
+
+  @GET
+  @Path('/json')
+  @Produces('application/json')
+  def helloJson() {
+    [ message: 'Hello!!!' ]
+  }
 }
