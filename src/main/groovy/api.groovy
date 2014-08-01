@@ -15,8 +15,8 @@ class RestApi {
 
   @GET
   @Produces('text/plain')
-  String hello() {
-    'Hello!!!\n'
+  Response hello() {
+    Response.ok('Hello!!!\n', 'application/x.testapp.deprecated+text').build()
   }
 
   @GET

@@ -19,6 +19,7 @@ class EndToEndTest {
     }
 
     @Test
+    @Ignore
     void testHello() {
 
         def response = client.get path: '/rest-api'
@@ -91,5 +92,18 @@ class EndToEndTest {
 
         assert get('en')  == 'Hello!!!'
         assert get('pt')  == 'Oi!!!'
+    }
+
+    @Test
+    void testHelloDeprecated() {
+
+        def response = client.get(
+            path: '/rest-api',
+            headers: [ 'Accept': 'text/plain' ],
+        )
+
+        assert response.status == 200
+        assert response.data.text == 'Hello!!!\n'
+        assert response.contentType == 'application/x.testapp.deprecated+text'
     }
 }
