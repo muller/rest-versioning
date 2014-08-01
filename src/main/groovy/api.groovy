@@ -11,6 +11,8 @@ class RestApi {
     'en': 'Hello!!!'
   ]
 
+  def getMessage = { language -> MESSAGES[language ?: 'en'] }
+
   @GET
   @Produces('text/plain')
   String hello() {
@@ -27,6 +29,12 @@ class RestApi {
   @GET
   @Produces('application/json')
   def helloJsonRoot(@QueryParam('language') String language) {
-    [ message: MESSAGES[language ?: 'en'] ]
+    [ message: getMessage(language) ]
+  }
+
+  @GET
+  @Produces('application/x.testapp.20140801+json')
+  def helloJsonNewFormat(@QueryParam('language') String language) {
+    [ msg: getMessage(language) ]
   }
 }
