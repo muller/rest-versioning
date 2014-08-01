@@ -27,6 +27,6 @@ class RestApi {
   @GET
   @Produces('application/json')
   def helloJsonRoot(@QueryParam('language') String language) {
-    [ message: MESSAGES[language] ]
+    [ message: MESSAGES[language ?: 'en'] ]
   }
 }
