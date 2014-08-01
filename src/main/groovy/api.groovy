@@ -6,6 +6,11 @@ import javax.ws.rs.core.*
 @Path('/rest-api')
 class RestApi {
 
+  static MESSAGES = [
+    'pt': 'Oi!!!',
+    'en': 'Hello!!!'
+  ]
+
   @GET
   @Produces('text/plain')
   String hello() {
@@ -21,7 +26,7 @@ class RestApi {
 
   @GET
   @Produces('application/json')
-  def helloJsonRoot() {
-    helloJson()
+  def helloJsonRoot(@QueryParam('language') String language) {
+    [ message: MESSAGES[language] ]
   }
 }
