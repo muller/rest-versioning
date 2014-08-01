@@ -18,4 +18,10 @@ class RestApi {
   def helloJson() {
     [ message: 'Hello!!!' ]
   }
+
+  @GET
+  @Produces('application/json')
+  def helloJsonRoot() {
+    helloJson()
+  }
 }
