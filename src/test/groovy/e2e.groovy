@@ -70,6 +70,26 @@ class EndToEndTest {
 
         assert get('en')  == 'Hello!!!'
         assert get('pt')  == 'Oi!!!'
+    }
 
+    @Test
+    void testNewFormat() {
+
+        def get = { language ->
+
+            def response = client.get(
+                path: '/rest-api',
+                headers: [ 'Accept': 'application/json' ],
+                query: ['language': language]
+            )
+
+            assert response.status == 200
+            assert response.contentType == 'application/json'
+
+            return response.data.msg
+        }
+
+        assert get('en')  == 'Hello!!!'
+        assert get('pt')  == 'Oi!!!'
     }
 }
