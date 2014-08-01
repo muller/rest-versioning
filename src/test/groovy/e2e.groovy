@@ -50,4 +50,26 @@ class EndToEndTest {
         assert response.data.message == 'Hello!!!'
         assert response.contentType == 'application/json'
     }
+
+    @Test
+    void testHelloJsonI18n() {
+
+        def get = { language ->
+
+            def response = client.get(
+                path: '/rest-api',
+                headers: [ 'Accept': 'application/json' ],
+                query: ['language': language]
+            )
+
+            assert response.status == 200
+            assert response.contentType == 'application/json'
+
+            return response.data.message
+        }
+
+        assert get('en')  == 'Hello!!!'
+        assert get('pt')  == 'Oi!!!'
+
+    }
 }
