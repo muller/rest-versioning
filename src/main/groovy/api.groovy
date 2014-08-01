@@ -34,7 +34,7 @@ class RestApi {
 
   @GET
   @Produces('application/x.testapp.20140801+json')
-  def helloJsonNewFormat(@QueryParam('language') String language) {
-    [ msg: getMessage(language) ]
+  Response helloJsonNewFormat(@QueryParam('language') String language) {
+    Response.ok([ msg: getMessage(language) ], 'application/json').build()
   }
 }

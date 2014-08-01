@@ -81,11 +81,10 @@ class EndToEndTest {
                 path: '/rest-api',
                 headers: [ 'Accept': 'application/x.testapp.20140801+json' ],
                 query: ['language': language],
-                contentType: 'application/json'
             )
 
             assert response.status == 200
-            assert response.contentType == 'application/x.testapp.20140801+json'
+            assert response.contentType == 'application/json'
 
             return response.data.msg
         }
