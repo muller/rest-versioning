@@ -37,4 +37,17 @@ class EndToEndTest {
         assert response.data.message == 'Hello!!!'
         assert response.contentType == 'application/json'
     }
+
+    @Test
+    void testHelloJsonHeader() {
+
+        def response = client.get(
+            path: '/rest-api',
+            headers: [ 'Accept': 'application/json' ]
+        )
+
+        assert response.status == 200
+        assert response.data.message == 'Hello!!!'
+        assert response.contentType == 'application/json'
+    }
 }
