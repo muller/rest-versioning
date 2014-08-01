@@ -14,12 +14,6 @@ class RestApi {
   def getMessage = { language -> MESSAGES[language ?: 'en'] }
 
   @GET
-  @Produces('text/plain')
-  Response hello() {
-    Response.ok('Hello!!!\n', 'application/x.testapp.deprecated+text').build()
-  }
-
-  @GET
   @Path('/json')
   @Produces('application/json')
   def helloJson() {
